@@ -1,0 +1,167 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-background: #a4bae4;
+  --bg-search-bar: rgba(255, 255, 255, 0.56);
+  --bg-search-coords: #000000;
+  --bg-color: rgba(255, 255, 255, 1);
+  --bg-center-container: rgba(196, 196, 196, 0.44);
+  --bg-centerContainer-shadow: ;
+}
+
+input {
+  width: 70%;
+  padding: 0.8rem 0.8rem;
+  margin: 1rem 0;
+  background: var(--bg-search-bar);
+  border: none;
+  outline: none;
+  border-radius: 100px;
+}
+
+input {
+  max-width: 450px;
+  min-width: 150px;
+}
+
+.bg--background {
+  background: var(--bg-background);
+}
+
+.Search-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.Search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-icon {
+  position: relative;
+  top: 0.4rem;
+  left: 2.8rem;
+}
+
+.search-bar {
+  text-align: center;
+}
+
+.city-input {
+  padding-left: 3rem;
+  color: var(--bg-search-coords);
+  font-size: 1.3rem;
+}
+
+.coordinates {
+  text-align: center;
+}
+
+.container-img img {
+  width: 100%;
+}
+
+@media (min-width: 50em) {
+  .Search-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .coordinates {
+    margin-top: 2rem;
+  }
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column-reverse;
+  color: var(--bg-color);
+}
+
+.main-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bg--container {
+  background: var(--bg-center-container);
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.556);
+  border-radius: 32px;
+}
+
+.flex--reverse {
+  flex-direction: column-reverse;
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.Weather-container {
+  flex-direction: column;
+  text-align: center;
+}
+
+.city {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.temp {
+  font-size: 5.2rem;
+  padding: 1.2rem;
+}
+
+.cityWeather--img {
+  font-size: 0.9rem;
+}
+
+.weather-details {
+  display: flex;
+}
+
+.pressure--details {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.cityWeather--img,
+.pressure--details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.cityWeather--img img {
+  height: 5rem;
+}
+
+.pressure--details img {
+  height: 3rem;
+}
+
+@media (min-width: 50em) {
+  .main-container {
+    margin-top: 0.8rem;
+    flex-direction: row;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 80vh;
+  }
+  .container-img {
+    flex-basis: 70%;
+  }
+  .temp {
+    padding: 3rem 0;
+  }
+  .Weather-container {
+    padding: 3rem 0;
+  }
+  .weather-details {
+    margin-left: 7rem;
+    text-align: center;
+    max-width: 550px;
+  }
+}

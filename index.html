@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/index.css" />
+    <link rel="stylesheet" href="./src/css/all.css" />
+    <script defer src="./src/js/main.js"></script>
+    <title>City Weather</title>
+  </head>
+  <body class="bg--background">
+    <header>
+      <div class="Search-container">
+        <div class="search-bar">
+          <form>
+            <label for="search" class="search">
+              <img
+                class="search-icon"
+                src="./src/img/search-icon.svg"
+                alt="icon"
+              />
+              <input
+                type="search"
+                placeholder="City Name"
+                class="city-input"
+                id="search-city"
+              />
+            </label>
+          </form>
+        </div>
+        <div class="coordinates">
+          <span>LAT: 00000000</span>
+          <span>LONG: 00000000</span>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="main-container bg--container">
+          <div class="container-img">
+            <figure>
+              <img src="./src/img/winter-seasion.svg" alt="winter-seasion" />
+            </figure>
+          </div>
+          <div class="flex--reverse">
+            <div class="Weather-container">
+              <div class="city"><span class="city-name">Indore</span></div>
+              <div class="temp"><span class="city-temp">18&#x2103;</span></div>
+              <div class="cityWeather--img">
+                <img
+                  src="./src/img/WeatherShowing-icon.svg"
+                  alt="winter-icon"
+                />
+                <span class="city-weather"> Snow </span>
+              </div>
+            </div>
+            <div class="weather-details">
+              <div class="pressure--details">
+                <img src="./src/img/Pressure-icon.svg" alt="icon" />
+                <span class="size pressure">2250</span>
+              </div>
+              <div class="pressure--details">
+                <img src="./src/img/Humidity-icon.svg" alt="icon" />
+                <span class="size humidity">2250</span>
+              </div>
+              <div class="pressure--details">
+                <img src="./src/img/wind-icon.svg" alt="icon" />
+                <span class="size wind">2250</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
