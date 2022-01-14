@@ -10,6 +10,7 @@
   "author": "Sachin Patel",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-image": "^2.2.0",
     "parcel": "^2.0.0-rc.0"
   },
   "dependencies": {
