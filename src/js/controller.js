@@ -1,81 +1,68 @@
+import icons from 'url:../img/icons.svg';
+
 const getData = async function () {
   try {
-    const data = await fetch(
-      'http://api.openweathermap.org/data/2.5/weather?q=indore&units=metric&appid=5f7704a8a2a989944955dee40d3115b6'
+    const getData = await fetch(
+      'http://api.openweathermap.org/data/2.5/weather?q=delhi&units=metric&appid=5f7704a8a2a989944955dee40d3115b6'
     );
+
+    const data = await getData.json();
     console.log(data);
+    const { coord } = data;
+    console.log(coord);
 
-    const get = await data.json();
+    const tempDetails = data.main;
+    console.log(tempDetails);
 
-    console.log(get);
+    const parentEl = document.querySelector('.main-container');
+    const coordEl = document.querySelector('.coordinates');
 
-    const parentEl = document.querySelector('.Search-container');
+    const coords = `
+           <span>LAT: ${coord.lat}</span>
+          <span>LONG: ${coord.lon}</span>
+        </div>
+    `;
+
+    coordEl.insertAdjacentHTML('afterbegin', coords);
 
     const html = `
-      
-      <div class="Search-container">
-        <div class="search-bar">
-          <form>
-            <label for="search" class="search">
-              <img
-                class="search-icon"
-                src="/search-icon.svg"
-                alt="icon"
-              />
-              <input
-                type="search"
-                placeholder="City Name"
-                class="city-input"
-                id="search-city"
-              />
-            </label>
-          </form>
-        </div>
-        <div class="coordinates">
-          <span>LAT: ${get.coord.lat}</span>
-          <span>LONG: ${get.coord.lon}</span>
-        </div>
+    <div class="img-container">
+    <img src="./src/img/summer-seasion.svg" alt="winter-seasion" />
+  </div>
+
+  <div class="flex--reverse">
+    <div class="Weather-container">
+      <div class="city"><span class="city-name">${data.name}</span></div>
+      <div class="temp"><span class="city-temp">${tempDetails.temp}&#x2103;</span></div>
+      <div class="cityWeather--img">
+        <svg id="weather--icon">
+          <use href="${icons}#clouds-icon"></use>
+        </svg>
+        <span class="city-weather"> ${data.weather[0].description} </span>
       </div>
-    </header>
-    <main>
-      <section>
-        <div class="main-container bg--container">
-          <div class="container-img">
-            <figure>
-              <img src="./src/img/winter-seasion.svg " alt="winter-seasion" />
-            </figure>
-          </div>
-          <div class="flex--reverse">
-            <div class="Weather-container">
-              <div class="city"><span class="city-name">Indore</span></div>
-              <div class="temp"><span class="city-temp">18&#x2103;</span></div>
-              <div class="cityWeather--img">
-                <img
-                  src="./src/img/WeatherShowing-icon.svg"
-                  alt="winter-icon"
-                />
-                <span class="city-weather"> Snow </span>
-              </div>
-            </div>
-            <div class="weather-details">
-              <div class="pressure--details">
-                <img src="./src/img/Pressure-icon.svg" alt="icon" />
-                <span class="size pressure">2250</span>
-              </div>
-              <div class="pressure--details">
-                <img src="./src/img/Humidity-icon.svg" alt="icon" />
-                <span class="size humidity">2250</span>
-              </div>
-              <div class="pressure--details">
-                <img src="./src/img/wind-icon.svg" alt="icon" />
-                <span class="size wind">2250</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-      `;
+    </div>
+    <div class="weather-details">
+      <div class="pressure--details">
+        <svg id="main-img">
+          <use href="${icons}#clouds-icon"></use>
+        </svg>
+        <span class="size pressure">${tempDetails.pressure}</span>
+      </div>
+      <div class="pressure--details">
+        <svg id="main-img">
+          <use href="${icons}#humidity-icon"></use>
+        </svg>
+        <span class="size humidity">${tempDetails.humidity}</span>
+      </div>
+      <div class="pressure--details">
+        <svg id="main-img">
+          <use href="${icons}#wind-icon"></use>
+        </svg>
+        <span class="size wind">${data.wind.speed}</span>
+      </div>
+    </div>
+  </div>
+    `;
 
     parentEl.insertAdjacentHTML('afterbegin', html);
   } catch (err) {
@@ -83,4 +70,15 @@ const getData = async function () {
   }
 };
 
-// getData();
+getData();
+
+const search = document.querySelector('#search-city');
+
+const renderContent = function () {
+  search.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log(e.target);
+  });
+};
+
+renderContent();
