@@ -1,4 +1,5 @@
 import icons from 'url:../../img/icons.svg';
+import img from 'url:../../img/summer-seasion.svg';
 
 class renderWeather {
   _parentEl = document.querySelector('.main-container');
@@ -12,14 +13,10 @@ class renderWeather {
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
   }
 
-  addHandlerRender(handle) {
-    this._parentEl.addEventListener('load', handle);
-  }
-
   _markup(data) {
     return `
         <div class="img-container">
-                <img src="./src/img/summer-seasion.svg" alt="winter-seasion" crossorigin />
+                <img src="${img}" alt="winter-seasion" crossorigin />
             </div>
 
             <div class="flex--reverse">

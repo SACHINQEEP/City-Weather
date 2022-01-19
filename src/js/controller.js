@@ -1,3 +1,6 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 import * as model from './model.js';
 import Rendercoords from './view/coords.js';
 import renderWeather from './view/weatherView.js';

@@ -26,16 +26,13 @@ export const loadData = async function (query) {
   try {
     state.cityName = query;
 
-    if (state.cityName !== query) {
-      const getData = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=5f7704a8a2a989944955dee40d3115b6`
-      );
+    const getData = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=5f7704a8a2a989944955dee40d3115b6`
+    );
 
-      const data = await getData.json();
-      console.log(data);
+    const data = await getData.json();
 
-      state.fetchData = weather(data);
-    }
+    state.fetchData = weather(data);
   } catch (err) {
     console.log(err);
   }
