@@ -36,7 +36,7 @@ class renderWeather {
             <div class="weather-details">
             <div class="pressure--details">
                 <svg id="main-img">
-                <use href="${icons}#clouds-icon"></use>
+                <use href="${icons}#pressure-icon"></use>
                 </svg>
                 <span class="size pressure">${data.pressure}</span>
             </div>
