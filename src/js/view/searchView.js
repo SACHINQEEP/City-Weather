@@ -8,8 +8,8 @@ class search {
     return query;
   }
 
-  // clearQuery() {
-  //     this._evernt.querySelector('search-city') = '';
+  // _clearQuery() {
+  //     this._parentEl.querySelector('.city-input') = '';
   // }
 
   addHandlerRender(handle) {

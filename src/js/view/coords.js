@@ -6,6 +6,7 @@ class Rendercoords {
     this._data = data;
 
     const markup = this._markup(this._data);
+    this._parentEl.innerHTML = '';
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
   }
 
