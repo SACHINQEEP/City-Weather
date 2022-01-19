@@ -7,9 +7,13 @@ class renderWeather {
   render(data) {
     this._data = data;
     console.log(this._data);
-    const markup = this._markup(this._data);
 
+    const markup = this._markup(this._data);
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
+  }
+
+  addHandlerRender(handle) {
+    this._parentEl.addEventListener('load', handle);
   }
 
   _markup(data) {

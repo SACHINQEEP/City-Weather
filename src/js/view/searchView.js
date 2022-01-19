@@ -1,21 +1,19 @@
 class search {
-  _parentEl = document.querySelector('.search');
-  _evernt = document.querySelector('#search-icon');
+  _parentEl = document.querySelector('.submit-form');
 
   getQuery() {
-    const query = this._parentEl.querySelector('#search-city').value;
+    const query = this._parentEl.querySelector('.city-input').value;
     console.log(query);
     if (!query) return;
-    // this.clearQuery();
     return query;
   }
 
-  //   clearQuery() {
-  //       this._parentEl.querySelector('search-city') = '';
-  //   }
+  // clearQuery() {
+  //     this._evernt.querySelector('search-city') = '';
+  // }
 
   addHandlerRender(handle) {
-    this._evernt.addEventListener('click', function (e) {
+    this._parentEl.addEventListener('submit', function (e) {
       e.preventDefault();
       handle();
     });

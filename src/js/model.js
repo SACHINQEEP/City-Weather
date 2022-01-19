@@ -1,5 +1,9 @@
 export const state = {
   fetchData: {},
+  cityName: '',
+  search: {
+    result: [],
+  },
 };
 console.log(state);
 
@@ -20,14 +24,18 @@ const weather = function (data) {
 
 export const loadData = async function (query) {
   try {
-    const getData = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=5f7704a8a2a989944955dee40d3115b6`
-    );
+    state.cityName = query;
 
-    const data = await getData.json();
-    console.log(data);
+    if (state.cityName !== query) {
+      const getData = await fetch(
+        `http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=5f7704a8a2a989944955dee40d3115b6`
+      );
 
-    state.fetchData = weather(data);
+      const data = await getData.json();
+      console.log(data);
+
+      state.fetchData = weather(data);
+    }
   } catch (err) {
     console.log(err);
   }
