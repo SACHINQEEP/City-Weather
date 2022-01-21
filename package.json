@@ -2,7 +2,7 @@
   "name": "city-weather-main",
   "version": "1.0.0",
   "description": "City Weather application",
-  "default": "index.html",
+  "default": "index.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
