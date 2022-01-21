@@ -1,5 +1,5 @@
 import icons from 'url:../../img/icons.svg';
-import img from 'url:../../img/summer-seasion.svg';
+import img from 'url:../../img/Earth.svg';
 
 class renderWeather {
   _parentEl = document.querySelector('.main-container');

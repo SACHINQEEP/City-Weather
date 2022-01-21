@@ -165,7 +165,7 @@ input {
 }
 
 #weather--icon {
-  width: 20%;
+  width: 100%;
 }
 
 @media (min-width: 50em) {
@@ -178,22 +178,19 @@ input {
   .temp {
     padding: 3rem 0;
   }
-  /* .Weather-container {
-    padding: 1.5rem 0.5rem;
-  } */
   .weather-details {
     margin-left: 7rem;
     text-align: center;
     max-width: 550px;
   }
   .img-container {
-    margin: 5rem auto;
-    flex-basis: 100%;
+    margin: 0 auto;
+    flex-basis: 85%;
   }
   .flex--reverse {
     margin: 1rem 3rem;
   }
   #weather--icon {
-    width: 30%;
+    width: 100%;
   }
 }
