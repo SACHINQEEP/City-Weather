@@ -1,11 +1,11 @@
 {
   "name": "city-weather-main",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "City Weather application",
+  "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build --dist-dir ./dist"
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Sachin Patel",
   "license": "ISC",
