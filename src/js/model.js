@@ -1,4 +1,10 @@
 import { async } from 'regenerator-runtime';
+import { API_KEY } from './config.js';
+import { API_URL } from './config.js';
+import { TEMP_UNIT } from './config.js';
+import { WEATHER_ICONS } from './config.js';
+import { ICONS_SIZE } from './config.js';
+import { AJAX } from './helper.js';
 
 export const state = {
   fetchData: {},
@@ -27,22 +33,21 @@ export const loadData = async function (query) {
   try {
     state.cityName = query;
 
-    const getData = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=5f7704a8a2a989944955dee40d3115b6`
-    );
-
-    const data = await getData.json();
-    console.log(data);
+    const data = await AJAX(`${API_URL}${query}${TEMP_UNIT}&appid=${API_KEY}`);
 
     state.fetchData = weather(data);
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
 };
 
 export const loadIcon = async function () {
-  const icons = state.fetchData.icons;
-  const iconData = `http://openweathermap.org/img/wn/${icons}@4x.png`;
-  state.icon = iconData;
-  console.log(iconData);
+  try {
+    const icons = state.fetchData.icons;
+    const iconData = `${WEATHER_ICONS}${icons}${ICONS_SIZE}`;
+    state.icon = iconData;
+    console.log(iconData);
+  } catch (err) {
+    console.log(err.message);
+  }
 };

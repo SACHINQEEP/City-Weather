@@ -1,3 +1,5 @@
+@import url(../css/font.css);
+
 * {
   padding: 0;
   margin: 0;
@@ -10,7 +12,12 @@
   --bg-search-coords: #000000;
   --bg-color: rgba(255, 255, 255, 1);
   --bg-center-container: rgba(196, 196, 196, 0.44);
-  --bg-centerContainer-shadow: ;
+
+  --Caveat-font: 'Caveat';
+}
+
+body {
+  font-family: var(--Caveat-font);
 }
 
 input {
