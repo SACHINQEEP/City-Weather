@@ -4,13 +4,6 @@ import * as model from './model.js';
 import Rendercoords from './view/coords.js';
 import renderWeather from './view/weatherView.js';
 import search from './view/searchView.js';
-import renderMainView from './view/mainView.js';
-
-const controlMain = function () {
-  renderMainView.render();
-};
-
-controlMain();
 
 const controlData = async function () {
   try {
