@@ -20,7 +20,6 @@ class renderWeather {
 
   _markup(data, icn) {
     return `
-        <div class="main-container bg--container">
         <div class="img-container">
                 <img src="${img}" alt="winter-seasion" crossorigin />
             </div>
@@ -54,7 +53,6 @@ class renderWeather {
                 <span class="size wind">${data.wind_speed}</span>
             </div>
             </div>
-        </div> 
       `;
   }
 }
