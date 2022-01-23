@@ -36,7 +36,7 @@ export const loadData = async function (query) {
 
     state.fetchData = weather(data);
   } catch (err) {
-    console.log(err.message);
+    throw err;
   }
 };
 
@@ -46,6 +46,6 @@ export const loadIcon = async function () {
     const iconData = `${WEATHER_ICONS}${icons}${ICONS_SIZE}`;
     state.icon = iconData;
   } catch (err) {
-    console.log(err.message);
+    throw err;
   }
 };

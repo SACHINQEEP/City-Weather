@@ -1,6 +1,7 @@
 import icons from 'url:../../img/icons.svg';
 import img from 'url:../../img/Earth.svg';
 import menu from 'url:../../img/menu-icon.svg';
+
 // import cancel from 'url:../../img/cancel-icon.svg';
 
 class renderWeather {
@@ -41,19 +42,19 @@ class renderWeather {
                 <svg id="main-img">
                 <use href="${icons}#pressure-icon"></use>
                 </svg>
-                <span class="size pressure">${data.pressure}</span>
+                <span class="size pressure">${data.pressure}hPa</span>
             </div>
             <div class="pressure--details">
                 <svg id="main-img">
                 <use href="${icons}#humidity-icon"></use>
                 </svg>
-                <span class="size humidity">${data.humidity}</span>
+                <span class="size humidity">${data.humidity}%</span>
             </div>
             <div class="pressure--details">
                 <svg id="main-img">
                 <use href="${icons}#wind-icon"></use>
                 </svg>
-                <span class="size wind">${data.wind_speed}</span>
+                <span class="size wind">${data.wind_speed}m/s</span>
             </div>
             </div>
       `;
