@@ -3,14 +3,16 @@ class search {
 
   getQuery() {
     const query = this._parentEl.querySelector('.city-input').value;
-    console.log(query);
+    this._clearQuery();
+
     if (!query) return;
+
     return query;
   }
 
-  // _clearQuery() {
-  //     this._parentEl.querySelector('.city-input') = '';
-  // }
+  _clearQuery() {
+    this._parentEl.querySelector('.city-input').value = '';
+  }
 
   addHandlerRender(handle) {
     this._parentEl.addEventListener('submit', function (e) {

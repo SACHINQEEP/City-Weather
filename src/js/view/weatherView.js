@@ -1,5 +1,7 @@
 import icons from 'url:../../img/icons.svg';
 import img from 'url:../../img/Earth.svg';
+import menu from 'url:../../img/menu-icon.svg';
+// import cancel from 'url:../../img/cancel-icon.svg';
 
 class renderWeather {
   _parentEl = document.querySelector('.main-container');
@@ -9,9 +11,6 @@ class renderWeather {
   render(data, icn) {
     this._data = data;
     this._icons = icn;
-    console.log(this._icons);
-
-    console.log(this._data);
 
     const markup = this._markup(this._data, this._icons);
     this._parentEl.innerHTML = '';
@@ -25,7 +24,11 @@ class renderWeather {
             </div>
 
             <div class="flex--reverse">
+            <div class="float-right">
+            <img src="${menu}" alt="icon" />
+            </div>
             <div class="Weather-container">
+            
             <div class="city"><span class="city-name">${data.city_name}</span></div>
             <div class="temp"><span class="city-temp">${data.temp}&#x2103;</span></div>
             <div class="cityWeather--img">

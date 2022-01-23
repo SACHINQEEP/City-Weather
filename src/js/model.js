@@ -11,7 +11,6 @@ export const state = {
   cityName: '',
   icon: '',
 };
-console.log(state);
 
 const weather = function (data) {
   const render = data;
@@ -46,7 +45,6 @@ export const loadIcon = async function () {
     const icons = state.fetchData.icons;
     const iconData = `${WEATHER_ICONS}${icons}${ICONS_SIZE}`;
     state.icon = iconData;
-    console.log(iconData);
   } catch (err) {
     console.log(err.message);
   }

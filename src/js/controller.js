@@ -8,9 +8,9 @@ import search from './view/searchView.js';
 const controlData = async function () {
   try {
     const query = search.getQuery();
-    console.log(query);
 
     await model.loadData(query);
+
     model.loadIcon();
 
     Rendercoords.render(model.state.fetchData);
