@@ -223,8 +223,8 @@ input {
 
 .float-right {
   position: relative;
-  left: 95%;
-  top: 1.2rem;
+  text-align: right;
+  top: 1.6rem;
   cursor: pointer;
 }
 
