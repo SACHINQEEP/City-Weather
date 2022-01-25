@@ -16,6 +16,8 @@ const controlData = async function () {
 
     model.loadIcon();
 
+    // model.loadFivedaysData();
+
     Rendercoords.render(model.state.fetchData);
 
     renderWeather.render(model.state.fetchData, model.state.icon);

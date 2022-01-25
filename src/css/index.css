@@ -269,3 +269,65 @@ input {
     transform: rotate(360deg);
   }
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(92, 91, 91, 0.892);
+  z-index: 50;
+  backdrop-filter: blur(50px);
+}
+
+.overlay-weatherContainer {
+  border-radius: 25px;
+  width: 80%;
+  margin: 4.45rem auto;
+  background: linear-gradient(#fc5c7d, #6a82fb);
+}
+
+.overlay-header {
+  margin: 0rem 1.5rem;
+}
+
+.weather--container {
+  margin: 0rem 1.5rem;
+}
+
+.weather {
+  border-bottom: 1px solid white;
+  padding: 1.5rem 1.5rem;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.open--close__icon {
+  position: relative;
+  left: 90%;
+  bottom: 30px;
+  cursor: pointer;
+  width: 2rem;
+}
+
+.flex:last-child {
+  border: none;
+}
+
+@media (min-width: 50em) {
+  .flex {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .flex--contentsun {
+    padding-right: 4rem;
+  }
+  .open--close__icon {
+    padding-left: 3.5rem;
+    top: -15px;
+  }
+}

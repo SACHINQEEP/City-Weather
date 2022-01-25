@@ -40,6 +40,21 @@ export const loadData = async function (query) {
   }
 };
 
+export const loadFivedaysData = async function () {
+  try {
+    const lat = state.fetchData.latitude;
+    const lon = state.fetchData.longitude;
+    const rec = await fetch(
+      `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+    );
+
+    const getData = await rec.json();
+    console.log(getData);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const loadIcon = async function () {
   try {
     const icons = state.fetchData.icons;
