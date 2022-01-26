@@ -1,94 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="upgrade-insecure-requests"
-    />
-    <link rel="stylesheet" href="./src/css/index.css" />
-    <script type="module" src="./src/js/controller.js"></script>
-    <title>City Weather</title>
-  </head>
-  <body class="bg--background">
-    <header>
-      <div class="Search-container">
-        <div class="search-bar">
-          <form class="submit-form">
-            <svg id="search-icon">
-              <use xlink:href="./src/img/icons.svg#search-icon"></use>
-            </svg>
-            <input
-              type="text"
-              placeholder="City Name"
-              class="city-input"
-              id="search-city"
-            />
-          </form>
-        </div>
-        <div class="coordinates">
-          <!-- <span>LAT: 00000000</span>
-          <span>LONG: 00000000</span> -->
-        </div>
-      </div>
-    </header>
-    <main>
-      <section>
-        <div class="main-container bg--container">
-          <!-- <div class="error-message">
-            <img src="./src/img/Error.svg" alt="Error icon" />
-          </div>icon-loader -->
-          <!-- <div class="spinner">
-          <svg id="icon-loader">
-              <use href="./src/img/icons.svg#icon-loader"></use>
-            </svg>
-          </div> -->
-          <!-- <div class="overlay--info">
-            <div class="float-right">
-              <img src="./src/img/cancel-icon.svg" alt="icon" />
-            </div>
-          </div> -->
-          <!-- <div class="img-container">
-            <img src="./src/img/summer-seasion.svg" alt="winter-seasion" />
-          </div>
+class allDaysView {
+  _parentEl = document.querySelector('.overlay');
 
-          <div class="flex--reverse">
-            <div class="Weather-container">
-              <div class="city"><span class="city-name">Indore</span></div>
-              <div class="temp"><span class="city-temp">18&#x2103;</span></div>
-              <div class="cityWeather--img">
-                <svg id="weather--icon">
-                  <use href="./src/img/icons.svg#clouds-icon"></use>
-                </svg>
-                <span class="city-weather"> Snow </span>
-              </div>
-            </div>
-            <div class="weather-details">
-              <div class="pressure--details">
-                <svg id="main-img">
-                  <use href="./src/img/icons.svg#clouds-icon"></use>
-                </svg>
-                <span class="size pressure">2250</span>
-              </div>
-              <div class="pressure--details">
-                <svg id="main-img">
-                  <use href="./src/img/icons.svg#humidity-icon"></use>
-                </svg>
-                <span class="size humidity">2250</span>
-              </div>
-              <div class="pressure--details">
-                <svg id="main-img">
-                  <use href="./src/img/icons.svg#wind-icon"></use>
-                </svg>
-                <span class="size wind">2250</span>
-              </div>
-            </div>
-          </div>-->
-        </div>
-        <div class="overlay">
-          <!--  <div class="overlay-weatherContainer">
+  render() {
+    const markup = this._markup();
+
+    this._parentEl.insertAdjacentHTML('afterbegin', markup);
+  }
+
+  _markup() {
+    return `
+      <div class="overlay-weatherContainer">
             <div class="overlay-header">
               <h3>5 Days Weather-<span>Indore</span></h3>
               <span>As of 12:40AM</span>
@@ -220,9 +141,7 @@
                 </div>
               </div>
             </div>
-          </div>-->
-        </div>
-      </section>
-    </main>
-  </body>
-</html>
+          </div>
+      `;
+  }
+}

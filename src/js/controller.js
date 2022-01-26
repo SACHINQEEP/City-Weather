@@ -5,6 +5,7 @@ import Rendercoords from './view/coords.js';
 import renderWeather from './view/weatherView.js';
 import search from './view/searchView.js';
 import view from './view/view.js';
+import { async } from 'regenerator-runtime';
 
 const controlData = async function () {
   try {
@@ -14,9 +15,9 @@ const controlData = async function () {
 
     await model.loadData(query);
 
-    model.loadIcon();
+    await model.loadFivedaysData();
 
-    // model.loadFivedaysData();
+    model.loadIcon();
 
     Rendercoords.render(model.state.fetchData);
 

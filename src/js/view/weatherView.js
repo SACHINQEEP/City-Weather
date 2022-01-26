@@ -1,6 +1,5 @@
 import icons from 'url:../../img/icons.svg';
 import img from 'url:../../img/Earth.svg';
-import menu from 'url:../../img/menu-icon.svg';
 
 // import cancel from 'url:../../img/cancel-icon.svg';
 
@@ -26,7 +25,9 @@ class renderWeather {
 
             <div class="flex--reverse">
             <div class="float-right">
-            <img src="${menu}" alt="icon" />
+            <svg id="main-img">
+                <use href="${icons}#menu-icon"></use>
+                </svg>
             </div>
             <div class="Weather-container">
             
