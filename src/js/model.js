@@ -12,6 +12,7 @@ export const state = {
   icon: '',
   search: {
     allDaysData: {},
+    sunrise: [],
   },
 };
 
@@ -50,6 +51,8 @@ const fiveDaysWeather = function (data) {
   console.log(list[0].weather);
 
   return {
+    city_name: city.name,
+    city_country: city.country,
     // first Day Data
     sunrise: city.sunrise,
     sunset: city.sunset,
@@ -68,28 +71,28 @@ const fiveDaysWeather = function (data) {
     discsec: list[8].weather[0].description,
     //Third Day Data
     sunrisethird: city.sunrise,
-    sunsetsecthird: city.sunset,
-    datesecthird: list[16].dt_txt,
-    tempsecthird: list[16].main.temp,
-    minTempsecthird: list[16].main.temp_min,
-    maxTempsecthird: list[16].main.temp_max,
-    discsecthird: list[16].weather[0].description,
+    sunsetthird: city.sunset,
+    datethird: list[16].dt_txt,
+    tempthird: list[16].main.temp,
+    minTempthird: list[16].main.temp_min,
+    maxTempthird: list[16].main.temp_max,
+    discthird: list[16].weather[0].description,
     //Forth Day Data
     sunriseforth: city.sunrise,
-    sunsetsecforth: city.sunset,
-    datesecforth: list[24].dt_txt,
-    tempsecforth: list[24].main.temp,
-    minTempsecforth: list[24].main.temp_min,
-    maxTempsecforth: list[24].main.temp_max,
-    discsecforth: list[24].weather[0].description,
+    sunsetforth: city.sunset,
+    dateforth: list[24].dt_txt,
+    tempforth: list[24].main.temp,
+    minTempforth: list[24].main.temp_min,
+    maxTempforth: list[24].main.temp_max,
+    discforth: list[24].weather[0].description,
     // Fifth Day data
     sunrisefive: city.sunrise,
-    sunsetsecfive: city.sunset,
-    datesecfive: list[32].dt_txt,
-    tempsecfive: list[32].main.temp,
-    minTempsecfive: list[32].main.temp_min,
-    maxTempsecfive: list[32].main.temp_max,
-    discsecfive: list[32].weather[0].description,
+    sunsetfive: city.sunset,
+    datefive: list[32].dt_txt,
+    tempfive: list[32].main.temp,
+    minTempfive: list[32].main.temp_min,
+    maxTempfive: list[32].main.temp_max,
+    discfive: list[32].weather[0].description,
   };
 };
 
@@ -98,7 +101,7 @@ export const loadFivedaysData = async function () {
     const lat = state.fetchData.latitude;
     const lon = state.fetchData.longitude;
     const rec = await fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+      `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&${TEMP_UNIT}&appid=${API_KEY}`
     );
 
     const getData = await rec.json();
@@ -108,6 +111,20 @@ export const loadFivedaysData = async function () {
   } catch (err) {
     console.log(err);
   }
+};
+
+export const timeConverter = function () {
+  const time = state.search.allDaysData.sunrise;
+  console.log(time);
+  const convert = new Date(time * 1000);
+
+  const option = {
+    hour: '2-digit',
+    minute: '2-digit',
+  };
+  const change = new Intl.DateTimeFormat('en-IN', option).format(convert);
+  console.log(change);
+  console.log(convert);
 };
 
 export const loadIcon = async function () {

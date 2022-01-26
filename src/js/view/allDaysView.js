@@ -1,41 +1,47 @@
+import icons from 'url:../../img/icons.svg';
+
 class allDaysView {
   _parentEl = document.querySelector('.overlay');
+  _data;
+  _icon;
 
-  render() {
-    const markup = this._markup();
+  render(data, icn) {
+    this._data = data;
+    this._icon = icn;
+    const markup = this._markup(this._data, this._icon);
 
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
   }
 
-  _markup() {
+  _markup(data, icon) {
     return `
       <div class="overlay-weatherContainer">
             <div class="overlay-header">
-              <h3>5 Days Weather-<span>Indore</span></h3>
+              <h3>5 Days Weather-<span>${data.city_name} ${
+      data.city_country
+    }</span></h3>
               <span>As of 12:40AM</span>
             </div>
             <div class="weather--container">
               <div class="weather flex today--weather">
                 <div class="flex--content">
                   <span>Today</span>
-                  <span>17&#x2103;</span>
-                  <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
-                  </svg>
-                  <span>Mostly Cloudy</span>
+                  <span>${data.temp}&#x2103;</span>
+                  <img id="main-img" src="${icon}" alt="icons" crossorigin />
+                  <span>${data.disc}</span>
                 </div>
                 <div class="flex--contentsun">
                   <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
+                    <use  href=" ${icons}#sunRise-icon"></use>
                   </svg>
-                  <span>06:15AM</span>
+                  <span>${data.sunrise * 1000}</span>
                   <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
+                    <use href=" ${icons}#sunDown-icon"></use>
                   </svg>
                   <span>06:30PM</span>
                   <div class="open--close__icon">
                     <svg id="main-img">
-                      <use href="./src/img/arrow-open.svg#Vector"></use>
+                      <use href="${icons}#open-icon"></use>
                     </svg>
                   </div>
                 </div>
@@ -43,24 +49,22 @@ class allDaysView {
               <div class="weather flex tomorrow--weather">
                 <div class="flex--content">
                   <span>Tomorrow</span>
-                  <span>17&#x2103;</span>
-                  <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
-                  </svg>
-                  <span>Mostly Cloudy</span>
+                  <span>${data.tempsec}&#x2103;</span>
+                  <img id="main-img" src="${icon}" alt="icons" crossorigin />
+                  <span>${data.discsec}</span>
                 </div>
                 <div class="flex--contentsun">
                   <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
+                    <use  href="${icons}#sunRise-icon"></use>
                   </svg>
                   <span>06:15AM</span>
                   <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
+                    <use  href="${icons}#sunDown-icon"></use>
                   </svg>
                   <span>06:30PM</span>
                   <div class="open--close__icon">
                     <svg id="main-img">
-                      <use href="./src/img/arrow-open.svg#Vector"></use>
+                      <use href="${icons}#open-icon"></use>
                     </svg>
                   </div>
                 </div>
@@ -68,24 +72,22 @@ class allDaysView {
               <div class="weather flex third--weather">
                 <div class="flex--content">
                   <span>27/01</span>
-                  <span>17&#x2103;</span>
-                  <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
-                  </svg>
-                  <span>Mostly Cloudy</span>
+                  <span>${data.tempthird}&#x2103;</span>
+                  <img id="main-img" src="${icon}" alt="icons" crossorigin />
+                  <span>${data.discthird}</span>
                 </div>
                 <div class="flex--contentsun">
                   <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
+                    <use  href="${icons}#sunRise-icon"></use>
                   </svg>
                   <span>06:15AM</span>
                   <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
+                    <use  href="${icons}#sunDown-icon"></use>
                   </svg>
                   <span>06:30PM</span>
                   <div class="open--close__icon">
                     <svg id="main-img">
-                      <use href="./src/img/arrow-open.svg#Vector"></use>
+                      <use href="${icons}#open-icon"></use>
                     </svg>
                   </div>
                 </div>
@@ -93,24 +95,22 @@ class allDaysView {
               <div class="weather flex forth--weather">
                 <div class="flex--content">
                   <span>28/01</span>
-                  <span>17&#x2103;</span>
-                  <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
-                  </svg>
-                  <span>Mostly Cloudy</span>
+                  <span>${data.tempforth}&#x2103;</span>
+                  <img id="main-img" src="${icon}" alt="icons" crossorigin />
+                  <span>${data.discforth}</span>
                 </div>
                 <div class="flex--contentsun">
                   <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
+                    <use  href="${icons}#sunRise-icon"></use>
                   </svg>
                   <span>06:15AM</span>
                   <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
+                    <use  href="${icons}#sunDown-icon"></use>
                   </svg>
                   <span>06:30PM</span>
                   <div class="open--close__icon">
                     <svg id="main-img">
-                      <use href="./src/img/arrow-open.svg#Vector"></use>
+                      <use href="${icons}#open-icon"></use>
                     </svg>
                   </div>
                 </div>
@@ -118,24 +118,22 @@ class allDaysView {
               <div class="weather flex fifth--weather">
                 <div class="flex--content">
                   <span>29/01</span>
-                  <span>17&#x2103;</span>
-                  <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
-                  </svg>
-                  <span>Mostly Cloudy</span>
+                  <span>${data.tempfive}&#x2103;</span>
+                  <img id="main-img" src="${icon}" alt="icons" crossorigin />
+                  <span>${data.discfive}</span>
                 </div>
                 <div class="flex--contentsun">
                   <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
+                    <use  href="${icons}#sunRise-icon"></use>
                   </svg>
                   <span>06:15AM</span>
                   <svg id="main-img">
-                    <use href="./src/img/icons.svg#wind-icon"></use>
+                    <use  href="${icons}#sunDown-icon"></use>
                   </svg>
                   <span>06:30PM</span>
                   <div class="open--close__icon">
                     <svg id="main-img">
-                      <use href="./src/img/arrow-open.svg#Vector"></use>
+                      <use href="${icons}#open-icon"></use>
                     </svg>
                   </div>
                 </div>
@@ -145,3 +143,5 @@ class allDaysView {
       `;
   }
 }
+
+export default new allDaysView();
