@@ -19,8 +19,8 @@ const controlData = async function () {
     await model.loadFivedaysData();
 
     model.loadIcon();
-    controlMenu();
-    model.timeConverter();
+    // controlMenu();
+    // model.timeConverter();
 
     Rendercoords.render(model.state.fetchData);
 
