@@ -15,8 +15,6 @@ class allDaysView {
     this._sunRise = sunRise;
     this._sunSet = sunSet;
 
-    console.log(this._icon);
-
     const markup = this._markup(
       this._data,
       this._icon,

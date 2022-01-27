@@ -6,7 +6,6 @@ import renderWeather from './view/weatherView.js';
 import search from './view/searchView.js';
 import view from './view/view.js';
 import allDaysView from './view/allDaysView.js';
-import { async } from 'regenerator-runtime';
 
 const controlData = async function () {
   try {
@@ -32,6 +31,8 @@ const controlData = async function () {
 };
 
 const controlMenu = async function () {
+  view.renderSpinner();
+
   model.timeConverter();
 
   model.loadIcon();

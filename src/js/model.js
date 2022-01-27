@@ -1,6 +1,7 @@
 import { async } from 'regenerator-runtime';
 import { API_KEY } from './config.js';
 import { API_URL } from './config.js';
+import { API_URL_5DAY } from './config.js';
 import { TEMP_UNIT } from './config.js';
 import { WEATHER_ICONS } from './config.js';
 import { ICONS_SIZE } from './config.js';
@@ -98,7 +99,7 @@ export const loadFivedaysData = async function () {
     const lat = state.fetchData.latitude;
     const lon = state.fetchData.longitude;
     const rec = await fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&${TEMP_UNIT}&appid=${API_KEY}`
+      `${API_URL_5DAY}${lat}&lon=${lon}&${TEMP_UNIT}&appid=${API_KEY}`
     );
 
     const getData = await rec.json();
