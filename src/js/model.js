@@ -12,7 +12,8 @@ export const state = {
   icon: '',
   search: {
     allDaysData: {},
-    sunrise: [],
+    risingTime: '',
+    setTime: '',
   },
 };
 
@@ -62,32 +63,28 @@ const fiveDaysWeather = function (data) {
     maxTemp: list[0].main.temp_max,
     disc: list[0].weather[0].description,
     //second Day Data
-    sunrisesec: city.sunrise,
-    sunsetsec: city.sunset,
+
     datesec: list[8].dt_txt,
     tempsec: list[8].main.temp,
     minTempsec: list[8].main.temp_min,
     maxTempsec: list[8].main.temp_max,
     discsec: list[8].weather[0].description,
     //Third Day Data
-    sunrisethird: city.sunrise,
-    sunsetthird: city.sunset,
+
     datethird: list[16].dt_txt,
     tempthird: list[16].main.temp,
     minTempthird: list[16].main.temp_min,
     maxTempthird: list[16].main.temp_max,
     discthird: list[16].weather[0].description,
     //Forth Day Data
-    sunriseforth: city.sunrise,
-    sunsetforth: city.sunset,
+
     dateforth: list[24].dt_txt,
     tempforth: list[24].main.temp,
     minTempforth: list[24].main.temp_min,
     maxTempforth: list[24].main.temp_max,
     discforth: list[24].weather[0].description,
     // Fifth Day data
-    sunrisefive: city.sunrise,
-    sunsetfive: city.sunset,
+
     datefive: list[32].dt_txt,
     tempfive: list[32].main.temp,
     minTempfive: list[32].main.temp_min,
@@ -114,17 +111,30 @@ export const loadFivedaysData = async function () {
 };
 
 export const timeConverter = function () {
-  const time = state.search.allDaysData.sunrise;
-  console.log(time);
-  const convert = new Date(time * 1000);
+  const sunrise = state.search.allDaysData.sunrise;
+  const sunset = state.search.allDaysData.sunset;
+
+  const convertboth = [sunrise, sunset];
+
+  const convert = convertboth.map(el => {
+    const changeData = new Date(el * 1000);
+    return changeData;
+  });
+
+  const [rise, set] = convert;
+  console.log(rise);
 
   const option = {
     hour: '2-digit',
     minute: '2-digit',
   };
-  const change = new Intl.DateTimeFormat('en-IN', option).format(convert);
-  console.log(change);
-  console.log(convert);
+
+  const changeSunrise = new Intl.DateTimeFormat('en-IN', option).format(rise);
+  const changeSunset = new Intl.DateTimeFormat('en-IN', option).format(set);
+  console.log(changeSunrise, changeSunset);
+
+  state.search.risingTime = changeSunrise;
+  state.search.setTime = changeSunset;
 };
 
 export const loadIcon = async function () {

@@ -22,13 +22,7 @@ class renderWeather {
         <div class="img-container">
                 <img src="${img}" alt="winter-seasion" crossorigin />
             </div>
-
             <div class="flex--reverse">
-            <div class="float-right">
-            <svg id="main-img">
-                <use href="${icons}#menu-icon"></use>
-                </svg>
-            </div>
             <div class="Weather-container">
             
             <div class="city"><span class="city-name">${data.city_name}</span></div>

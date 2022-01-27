@@ -222,14 +222,10 @@ input {
 }
 
 .float-right {
-  position: relative;
+  position: absolute;
   text-align: right;
-  top: 1.6rem;
+  top: 1.5rem;
   cursor: pointer;
-}
-
-.float-right img {
-  width: 1.2rem;
 }
 
 .error-message,
@@ -315,6 +311,11 @@ input {
 
 .flex:last-child {
   border: none;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 @media (min-width: 50em) {

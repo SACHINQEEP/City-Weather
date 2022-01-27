@@ -19,23 +19,34 @@ const controlData = async function () {
     await model.loadFivedaysData();
 
     model.loadIcon();
+
     // controlMenu();
-    // model.timeConverter();
 
     Rendercoords.render(model.state.fetchData);
 
     renderWeather.render(model.state.fetchData, model.state.icon);
+    console.log(model.state.icon);
   } catch (err) {
     console.log(err);
   }
 };
 
 const controlMenu = async function () {
-  allDaysView.render(model.state.search.allDaysData, model.state.icon);
+  model.timeConverter();
+
+  model.loadIcon();
+
+  allDaysView.render(
+    model.state.search.allDaysData,
+    model.state.icon,
+    model.state.search.risingTime,
+    model.state.search.setTime
+  );
 };
 
 const init = function () {
   search.addHandlerRender(controlData);
+  allDaysView.addHandlerRender(controlMenu);
 };
 
 init();

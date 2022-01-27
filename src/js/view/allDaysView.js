@@ -2,24 +2,36 @@ import icons from 'url:../../img/icons.svg';
 
 class allDaysView {
   _parentEl = document.querySelector('.overlay');
+  _showWindow = document.querySelector('.clicked--icon');
+  _show = document.querySelector('.overlay');
   _data;
   _icon;
+  _sunRise;
+  _sunSet;
 
-  render(data, icn) {
+  render(data, icn, sunRise, sunSet) {
     this._data = data;
     this._icon = icn;
-    const markup = this._markup(this._data, this._icon);
+    this._sunRise = sunRise;
+    this._sunSet = sunSet;
+
+    console.log(this._icon);
+
+    const markup = this._markup(
+      this._data,
+      this._icon,
+      this._sunRise,
+      this._sunSet
+    );
 
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
   }
 
-  _markup(data, icon) {
+  _markup(data, icon, rise, set) {
     return `
       <div class="overlay-weatherContainer">
             <div class="overlay-header">
-              <h3>5 Days Weather-<span>${data.city_name} ${
-      data.city_country
-    }</span></h3>
+              <h3>5 Days Weather-<span>${data.city_name} ${data.city_country}</span></h3>
               <span>As of 12:40AM</span>
             </div>
             <div class="weather--container">
@@ -34,11 +46,11 @@ class allDaysView {
                   <svg id="main-img">
                     <use  href=" ${icons}#sunRise-icon"></use>
                   </svg>
-                  <span>${data.sunrise * 1000}</span>
+                  <span>${rise}</span>
                   <svg id="main-img">
                     <use href=" ${icons}#sunDown-icon"></use>
                   </svg>
-                  <span>06:30PM</span>
+                  <span>${set}</span>
                   <div class="open--close__icon">
                     <svg id="main-img">
                       <use href="${icons}#open-icon"></use>
@@ -55,13 +67,13 @@ class allDaysView {
                 </div>
                 <div class="flex--contentsun">
                   <svg id="main-img">
-                    <use  href="${icons}#sunRise-icon"></use>
+                    <use  href="${icons}#tempMin-icon"></use>
                   </svg>
-                  <span>06:15AM</span>
+                  <span>${data.minTempsec}&#x2103;</span>
                   <svg id="main-img">
-                    <use  href="${icons}#sunDown-icon"></use>
+                    <use  href="${icons}#tempMax-icon"></use>
                   </svg>
-                  <span>06:30PM</span>
+                  <span>${data.maxTempsec}&#x2103;</span>
                   <div class="open--close__icon">
                     <svg id="main-img">
                       <use href="${icons}#open-icon"></use>
@@ -78,13 +90,13 @@ class allDaysView {
                 </div>
                 <div class="flex--contentsun">
                   <svg id="main-img">
-                    <use  href="${icons}#sunRise-icon"></use>
+                    <use  href="${icons}#tempMin-icon"></use>
                   </svg>
-                  <span>06:15AM</span>
+                  <span>${data.minTempthird}&#x2103;</span>
                   <svg id="main-img">
-                    <use  href="${icons}#sunDown-icon"></use>
+                    <use  href="${icons}#tempMax-icon"></use>
                   </svg>
-                  <span>06:30PM</span>
+                  <span>${data.maxTempthird}&#x2103;</span>
                   <div class="open--close__icon">
                     <svg id="main-img">
                       <use href="${icons}#open-icon"></use>
@@ -101,13 +113,13 @@ class allDaysView {
                 </div>
                 <div class="flex--contentsun">
                   <svg id="main-img">
-                    <use  href="${icons}#sunRise-icon"></use>
+                    <use  href="${icons}#tempMin-icon"></use>
                   </svg>
-                  <span>06:15AM</span>
+                  <span>${data.minTempforth}&#x2103;</span>
                   <svg id="main-img">
-                    <use  href="${icons}#sunDown-icon"></use>
+                    <use  href="${icons}#tempMax-icon"></use>
                   </svg>
-                  <span>06:30PM</span>
+                  <span>${data.maxTempforth}&#x2103;</span>
                   <div class="open--close__icon">
                     <svg id="main-img">
                       <use href="${icons}#open-icon"></use>
@@ -124,13 +136,13 @@ class allDaysView {
                 </div>
                 <div class="flex--contentsun">
                   <svg id="main-img">
-                    <use  href="${icons}#sunRise-icon"></use>
+                    <use  href="${icons}#tempMin-icon"></use>
                   </svg>
-                  <span>06:15AM</span>
+                  <span>${data.minTempfive}&#x2103;</span>
                   <svg id="main-img">
-                    <use  href="${icons}#sunDown-icon"></use>
+                    <use  href="${icons}#tempMax-icon"></use>
                   </svg>
-                  <span>06:30PM</span>
+                  <span>${data.maxTempfive}&#x2103;</span>
                   <div class="open--close__icon">
                     <svg id="main-img">
                       <use href="${icons}#open-icon"></use>
@@ -141,6 +153,12 @@ class allDaysView {
             </div>
           </div>
       `;
+  }
+
+  addHandlerRender(handle) {
+    this._showWindow.addEventListener('click', function () {
+      return handle();
+    });
   }
 }
 
