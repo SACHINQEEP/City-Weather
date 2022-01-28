@@ -271,9 +271,9 @@ input {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(92, 91, 91, 0.892);
-  z-index: 50;
-  backdrop-filter: blur(50px);
+  background: rgba(157, 157, 157, 0.892);
+  z-index: 20;
+  backdrop-filter: blur(5px);
 }
 
 .overlay-weatherContainer {
@@ -284,7 +284,7 @@ input {
 }
 
 .overlay-header {
-  margin: 0rem 1.5rem;
+  margin: 2rem 1.5rem;
 }
 
 .weather--container {
@@ -299,14 +299,6 @@ input {
 .flex {
   display: flex;
   flex-direction: column;
-}
-
-.open--close__icon {
-  position: relative;
-  left: 90%;
-  bottom: 30px;
-  cursor: pointer;
-  width: 2rem;
 }
 
 .flex:last-child {
@@ -326,9 +318,5 @@ input {
 
   .flex--contentsun {
     padding-right: 4rem;
-  }
-  .open--close__icon {
-    padding-left: 3.5rem;
-    top: -15px;
   }
 }

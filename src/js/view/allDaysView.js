@@ -29,13 +29,15 @@ class allDaysView {
     return `
       <div class="overlay-weatherContainer">
             <div class="overlay-header">
-              <h3>5 Days Weather-<span>${data.city_name} ${data.city_country}</span></h3>
+              <h3>5 Days Weather-<span>${data.city_name} ${
+      data.city_country
+    }</span></h3>
               <span>As of 12:40AM</span>
             </div>
             <div class="weather--container">
               <div class="weather flex today--weather">
                 <div class="flex--content">
-                  <span>Today</span>
+                  <span>[Today]</span>
                   <span>${data.temp}&#x2103;</span>
                   <img id="main-img" src="${icon}" alt="icons" crossorigin />
                   <span>${data.disc}</span>
@@ -49,16 +51,11 @@ class allDaysView {
                     <use href=" ${icons}#sunDown-icon"></use>
                   </svg>
                   <span>${set}</span>
-                  <div class="open--close__icon">
-                    <svg id="main-img">
-                      <use href="${icons}#open-icon"></use>
-                    </svg>
-                  </div>
                 </div>
               </div>
               <div class="weather flex tomorrow--weather">
                 <div class="flex--content">
-                  <span>Tomorrow</span>
+                  <span>[Tomorrow]</span>
                   <span>${data.tempsec}&#x2103;</span>
                   <img id="main-img" src="${icon}" alt="icons" crossorigin />
                   <span>${data.discsec}</span>
@@ -72,16 +69,11 @@ class allDaysView {
                     <use  href="${icons}#tempMax-icon"></use>
                   </svg>
                   <span>${data.maxTempsec}&#x2103;</span>
-                  <div class="open--close__icon">
-                    <svg id="main-img">
-                      <use href="${icons}#open-icon"></use>
-                    </svg>
-                  </div>
                 </div>
               </div>
               <div class="weather flex third--weather">
                 <div class="flex--content">
-                  <span>27/01</span>
+                  <span>[${data.datethird.slice(0, 10)}]</span>
                   <span>${data.tempthird}&#x2103;</span>
                   <img id="main-img" src="${icon}" alt="icons" crossorigin />
                   <span>${data.discthird}</span>
@@ -95,16 +87,11 @@ class allDaysView {
                     <use  href="${icons}#tempMax-icon"></use>
                   </svg>
                   <span>${data.maxTempthird}&#x2103;</span>
-                  <div class="open--close__icon">
-                    <svg id="main-img">
-                      <use href="${icons}#open-icon"></use>
-                    </svg>
-                  </div>
                 </div>
               </div>
               <div class="weather flex forth--weather">
                 <div class="flex--content">
-                  <span>28/01</span>
+                  <span>[${data.dateforth.slice(0, 10)}]</span>
                   <span>${data.tempforth}&#x2103;</span>
                   <img id="main-img" src="${icon}" alt="icons" crossorigin />
                   <span>${data.discforth}</span>
@@ -118,16 +105,11 @@ class allDaysView {
                     <use  href="${icons}#tempMax-icon"></use>
                   </svg>
                   <span>${data.maxTempforth}&#x2103;</span>
-                  <div class="open--close__icon">
-                    <svg id="main-img">
-                      <use href="${icons}#open-icon"></use>
-                    </svg>
-                  </div>
                 </div>
               </div>
               <div class="weather flex fifth--weather">
                 <div class="flex--content">
-                  <span>29/01</span>
+                  <span>[${data.datefive.slice(0, 10)}]</span>
                   <span>${data.tempfive}&#x2103;</span>
                   <img id="main-img" src="${icon}" alt="icons" crossorigin />
                   <span>${data.discfive}</span>
@@ -141,11 +123,6 @@ class allDaysView {
                     <use  href="${icons}#tempMax-icon"></use>
                   </svg>
                   <span>${data.maxTempfive}&#x2103;</span>
-                  <div class="open--close__icon">
-                    <svg id="main-img">
-                      <use href="${icons}#open-icon"></use>
-                    </svg>
-                  </div>
                 </div>
               </div>
             </div>

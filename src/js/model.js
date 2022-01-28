@@ -104,8 +104,6 @@ export const loadFivedaysData = async function () {
 
     const getData = await rec.json();
     state.search.allDaysData = fiveDaysWeather(getData);
-    console.log(getData);
-    console.log(state.search.allDaysData);
   } catch (err) {
     console.log(err);
   }
@@ -123,7 +121,6 @@ export const timeConverter = function () {
   });
 
   const [rise, set] = convert;
-  console.log(rise);
 
   const option = {
     hour: '2-digit',
@@ -132,7 +129,6 @@ export const timeConverter = function () {
 
   const changeSunrise = new Intl.DateTimeFormat('en-IN', option).format(rise);
   const changeSunset = new Intl.DateTimeFormat('en-IN', option).format(set);
-  console.log(changeSunrise, changeSunset);
 
   state.search.risingTime = changeSunrise;
   state.search.setTime = changeSunset;
