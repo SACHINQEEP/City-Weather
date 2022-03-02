@@ -5,4 +5,4 @@ export const API_URL_5DAY =
 export const TEMP_UNIT = '&units=metric';
 export const WEATHER_ICONS = 'http://openweathermap.org/img/wn/';
 export const ICONS_SIZE = '@4x.png';
-export const TIMEOUT_SEC = 10;
+export const TIMEOUT_SEC = 100;

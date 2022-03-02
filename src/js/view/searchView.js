@@ -4,9 +4,11 @@ class search {
 
   getQuery() {
     const query = this._parentEl.querySelector('.city-input').value;
+    if (query === undefined) return;
+    console.log(query);
+
     this._clearQuery();
     this._showMenu.classList.remove('hidden');
-    if (!query) return;
 
     return query;
   }

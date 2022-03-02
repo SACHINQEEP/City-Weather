@@ -43,6 +43,8 @@ const controlMenu = async function () {
     model.state.search.risingTime,
     model.state.search.setTime
   );
+
+  allDaysView.removingHandlerRender();
 };
 
 const init = function () {

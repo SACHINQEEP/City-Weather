@@ -12,8 +12,10 @@ const timeOut = function (s) {
 export const AJAX = async function (url) {
   try {
     const getData = await fetch(url);
-
+   
     const rec = await Promise.race([getData, timeOut(TIMEOUT_SEC)]);
+
+    console.log(rec);
 
     const data = await getData.json();
 

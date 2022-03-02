@@ -3,7 +3,6 @@ import icons from 'url:../../img/icons.svg';
 class allDaysView {
   _parentEl = document.querySelector('.overlay');
   _showWindow = document.querySelector('.clicked--icon');
-  _show = document.querySelector('.overlay');
   _data;
   _icon;
   _sunRise;
